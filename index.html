@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Careers in Chennai</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+   /* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: albert sans;
+  background-color: #f9f9f9;
+}
+
+header {
+  background-color: skyblue;
+  color: #fff;
+}
+
+/* Top Navigation */
+.top-nav {
+  background-color: rgb(105, 176, 204);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.top-nav .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.top-nav .social-icons a {
+  color: white;
+  text-decoration: none;
+  font-size: 10px;
+}
+
+.top-nav .contact-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 10px;
+}
+
+.top-nav .contact-info i {
+  margin-right: 5px;
+}
+
+.secondary-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  border-bottom: 10px solid #ddd;
+}
+
+.secondary-nav .left-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.secondary-nav .logo {
+  font-size: 16px;
+  font-weight: bold;
+  color: rgb(88, 175, 209);
+}
+
+.secondary-nav nav {
+  display: flex;
+  gap: 20px;
+}
+
+.secondary-nav nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.secondary-nav nav a:hover {
+  text-decoration: underline;
+}
+
+.secondary-nav .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.secondary-nav .buttons button {
+  padding: 8px 15px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  background-color: rgb(84, 169, 202);
+  border-radius: 15px;
+}
+
+.secondary-nav .buttons button:hover {
+  background-color: #141414;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    width: 300px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: skyblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-content .close {
+    float: right;
+    cursor: pointer;
+    font-size: 20px;
+}
+/* Main Content */
+main {
+  padding: 50px;
+}
+
+.search-section {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+.search-section h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  padding: 10px;
+  background-color: skyblue;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Browse Buttons */
+.browse-buttons {
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+}
+
+.browse-it, .browse-non-it {
+  padding: 10px 20px;
+  border: 1px solid skyblue;
+  background-color: white;
+  color: skyblue;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 50px;
+}
+
+.browse-it.active, .browse-non-it.active {
+  background-color: skyblue;
+  color: white;
+}
+
+/* Categories */
+.categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  row-gap: 5px; /* Space between rows */
+  column-gap: 5px; /* Space between columns */
+  margin-top: 20px;
+}
+
+.category {
+  text-align: left;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+.category h3 {
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.category p {
+  color: skyblue;
+  font-weight: normal;
+  font-size: 10px;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-nav">
+            <div class="social-icons">
+              <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="#"><i class="fa-brands fa-facebook"></i></a>
+              <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#"><i class="fa-solid fa-envelope"></i></a>
+              <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+            <div class="contact-info">
+              <span><i class="fa-solid fa-envelope"></i> corp@cynosurejobs.com</span>
+              <span><i class="fa-solid fa-phone"></i> 605-646-9241</span>
+            </div>
+          </div>
+          <div class="secondary-nav">
+            <div class="left-section">
+              <div class="logo">Careers in Chennai</div>
+              <nav>
+                <a href="#">Home</a>
+                <a href="#">Search Jobs</a>
+                <a href="#">Employer</a>
+                <a href="#">Contact</a>
+              </nav>
+            </div>
+            <div class="buttons">
+              <button class="login-btn">Log In</button>
+              <button class="register-btn">Register</button> 
+            </div>             
+    </header>
+
+    <!-- Login and Register Modals -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Login</h2>
+            <input type="text" placeholder="Enter Email" />
+            <input type="password" placeholder="Enter Password" />
+            <button>Login</button>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Register</h2>
+            <input type="text" placeholder="Enter Name" />
+            <input type="email" placeholder="Enter Email" />
+            <input type="password" placeholder="Create Password" />
+            <button>Register</button>
+        </div>
+    </div>
+    <section class="search-section">
+        <h3>Find your favorite jobs by function</h3>
+        <div class="search-bar">
+            <input type="text" placeholder="Search by:Job industries">
+            <button>Find Jobs</button>
+        </div>
+        <div class="browse-buttons">
+            <button class="browse-it active">Browse by IT function</button>
+            <button class="browse-non-it">Browse by Non IT function</button>
+        </div>
+    </section>
+    <section class="categories" id="itCategories">
+        <div class="category">
+            <h3>Cybersecurity</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>DevOps Engineering</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>IT Project Management</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Big Data Engineering</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Cybersecurity</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>DevOps Engineering</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>IT Project Management</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Big Data Engineering</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Cybersecurity</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>DevOps Engineering</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>IT Project Management</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Big Data Engineering</h3>
+            <p>20 ACTIVE JOBS</p>
+        </div>
+    </section>
+    <section class="categories" id="nonItCategories" style="display: none;">
+        <div class="category">
+            <h3>Human Resources</h3>
+            <p>15 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Marketing</h3>
+            <p>18 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Sales</h3>
+            <p>22 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Customer Support</h3>
+            <p>10 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Human Resources</h3>
+            <p>15 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Marketing</h3>
+            <p>18 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Sales</h3>
+            <p>22 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Customer Support</h3>
+            <p>10 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Human Resources</h3>
+            <p>15 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Marketing</h3>
+            <p>18 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Sales</h3>
+            <p>22 ACTIVE JOBS</p>
+        </div>
+        <div class="category">
+            <h3>Customer Support</h3>
+            <p>10 ACTIVE JOBS</p>
+        </div>
+    </section>
+</main>
+
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const loginBtn = document.querySelector(".login-btn");
+        const registerBtn = document.querySelector(".register-btn");
+        const loginModal = document.getElementById("loginModal");
+        const registerModal = document.getElementById("registerModal");
+        const closeBtns = document.querySelectorAll(".close");
+
+        loginBtn.addEventListener("click", () => {
+            loginModal.style.display = "flex";
+        });
+
+        registerBtn.addEventListener("click", () => {
+            registerModal.style.display = "flex";
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener("click", () => {
+                loginModal.style.display = "none";
+                registerModal.style.display = "none";
+            });
+        });
+
+        window.addEventListener("click", (e) => {
+            if (e.target === loginModal) loginModal.style.display = "none";
+            if (e.target === registerModal) registerModal.style.display = "none";
+        });
+    });
+    const itButton = document.querySelector(".browse-it");
+        const nonItButton = document.querySelector(".browse-non-it");
+        const itCategories = document.getElementById("itCategories");
+        const nonItCategories = document.getElementById("nonItCategories");
+
+        itButton.addEventListener("click", () => {
+            itCategories.style.display = "grid";
+            nonItCategories.style.display = "none";
+            itButton.classList.add("active");
+            nonItButton.classList.remove("active");
+        });
+
+        nonItButton.addEventListener("click", () => {
+            nonItCategories.style.display = "grid";
+            itCategories.style.display = "none";
+            nonItButton.classList.add("active");
+            itButton.classList.remove("active");
+        });
+    </script>
+</body>
+</html>
